@@ -1,8 +1,8 @@
 set nocompatible			 " must be the first line
 
 call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
-
 
 " *** General Settings ***
 set history=500				 " command line history
