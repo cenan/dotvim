@@ -2,7 +2,7 @@ set nocompatible			 " must be the first line
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#helptags()
 
 " *** General Settings ***
 set history=500				 " command line history
@@ -23,10 +23,14 @@ set smartindent
 
 
 " *** Directories ***
-set backup
-set backupdir=$HOME/.temp//  " for backup files
-set directory=$HOME/.temp//  " for swap files
-silent execute '!mkdir -p $HOME/.temp'
+if has("win32")
+	set nobackup
+else
+	set backup
+	set backupdir=$HOME/.temp//  " for backup files
+	set directory=$HOME/.temp//  " for swap files
+	silent execute '!mkdir -p $HOME/.temp'
+endif
 
 
 " *** UI ***
