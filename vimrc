@@ -147,7 +147,7 @@ if has('autocmd')
 	autocmd BufNewFile,BufRead *.txt setlocal filetype=text
 	autocmd FileType text setlocal textwidth=78 complete+=k infercase
 	autocmd FileType html setlocal shiftwidth=4 tabstop=4
-	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+	autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
 	autocmd BufWritePost *.coffee silent CoffeeMake! -b
