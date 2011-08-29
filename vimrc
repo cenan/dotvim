@@ -57,10 +57,10 @@ if has("gui_running")
 	syntax on
 	set guioptions=gmr
 	set guifont=Monaco\ 10
-	colorscheme molokai
+	colorscheme Tomorrow-Night-Eighties
 else
 	set t_Co=256
-	colorscheme molokai
+	colorscheme Tomorrow-Night-Eighties
 endif
 
 set fillchars=""			 " no window seperator character
@@ -80,13 +80,21 @@ nnoremap <silent> <Leader>p :call PythonMode()<CR>
 nnoremap <silent> <Leader>s :call ToggleSyntax()<CR>
 nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
 nnoremap <silent> <Leader>h :nohlsearch<cr>
-nnoremap <silent> <leader>b :!scons<cr>
+nnoremap <silent> <leader>sc :!scons<cr>
+nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
+nnoremap <silent> <leader>t1 :colorscheme Tomorrow<cr>
+nnoremap <silent> <leader>t2 :colorscheme Tomorrow-Night<cr>
+nnoremap <silent> <leader>t3 :colorscheme Tomorrow-Night-Blue<cr>
+nnoremap <silent> <leader>t4 :colorscheme Tomorrow-Night-Bright<cr>
+nnoremap <silent> <leader>t5 :colorscheme Tomorrow-Night-Eighties<cr>
+
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
 map <a-Left> :bp<CR>
 map <a-Right> :bn<CR>
 map <a-x> :Bclose<CR>
+" these are for A4Tech X7 keyboard
 nnoremap - :1b<cr>
 nnoremap ğ :2b<cr>
 nnoremap ü :3b<cr>
@@ -151,9 +159,7 @@ if has('autocmd')
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
 	autocmd BufWritePost *.coffee silent CoffeeMake! -b
-	"au BufRead,BufNewFile *.b set filetype=betik
-
-	" autocmd! Syntax betik source $VIM/betik.vim
+	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
