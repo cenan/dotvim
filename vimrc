@@ -160,6 +160,7 @@ if has('autocmd')
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
 	autocmd BufWritePost *.coffee silent CoffeeMake! -b
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
+	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
