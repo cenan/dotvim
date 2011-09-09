@@ -138,7 +138,7 @@ set lazyredraw				 " don't update the screen while playing macros
 set mousehide				 " hide pointer while typing
 set clipboard+=unnamed		 " supposed to use the system clipboard
 set swapsync=
-
+set shortmess+=I             " remove useless splash screen
 
 " *** AutoComplete ***
 set completeopt=longest,menuone
