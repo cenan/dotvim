@@ -81,7 +81,7 @@ set listchars=tab:▸\ ,eol:¬
 " *** Keys ***
 let mapleader = ","
 nnoremap <silent> <Leader>v :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>t :set noet\|retab!<CR>
+nnoremap <silent> <Leader>r :set noet\|retab!<CR>
 nnoremap <silent> <Leader>l :set list!<CR>
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 nnoremap <silent> <Leader>p :call PythonMode()<CR>
@@ -90,11 +90,11 @@ nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
 nnoremap <silent> <Leader>h :nohlsearch<cr>
 nnoremap <silent> <leader>sc :!scons<cr>
 nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
-nnoremap <silent> <leader>t1 :colorscheme Tomorrow<cr>
-nnoremap <silent> <leader>t2 :colorscheme Tomorrow-Night<cr>
-nnoremap <silent> <leader>t3 :colorscheme Tomorrow-Night-Blue<cr>
-nnoremap <silent> <leader>t4 :colorscheme Tomorrow-Night-Bright<cr>
-nnoremap <silent> <leader>t5 :colorscheme Tomorrow-Night-Eighties<cr>
+nnoremap <silent> <leader>c1 :colorscheme Tomorrow<cr>
+nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
+nnoremap <silent> <leader>c3 :colorscheme Tomorrow-Night-Blue<cr>
+nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
+nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
@@ -102,12 +102,6 @@ nmap <silent> <F3> :TagbarToggle<CR>
 map <a-Left> :bp<CR>
 map <a-Right> :bn<CR>
 map <a-x> :Bclose<CR>
-" these are for A4Tech X7 keyboard
-nnoremap - :1b<cr>
-nnoremap ğ :2b<cr>
-nnoremap ü :3b<cr>
-nnoremap ö :4b<cr>
-nnoremap ç :5b<cr>
 
 imap <F11> <ESC>"+y<CR>
 imap <F12> <ESC>"+gP<CR>
@@ -169,6 +163,8 @@ if has('autocmd')
 	autocmd BufWritePost *.coffee silent CoffeeMake! -b
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
+
+	autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
