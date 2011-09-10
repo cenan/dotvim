@@ -56,11 +56,19 @@ endif
 if has("gui_running")
 	syntax on
 	set guioptions=gmr
-	set guifont=Monaco\ 10
+	if has("win32")
+		set guifont=Monaco:h14:cTURKISH
+	else
+		set guifont=Monaco\ 10
+	end
 	colorscheme Tomorrow-Night-Eighties
 else
 	set t_Co=256
-	colorscheme Tomorrow-Night-Eighties
+	if has("win32")
+		colorscheme Borland
+	else
+		colorscheme Tomorrow-Night-Eighties
+	end
 endif
 
 set fillchars=""			 " no window seperator character
