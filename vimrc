@@ -99,8 +99,8 @@ nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
-map <a-Left> :bp<CR>
-map <a-Right> :bn<CR>
+map <C-J> :bp<CR>
+map <C-K> :bn<CR>
 map <a-x> :Bclose<CR>
 
 imap <F11> <ESC>"+y<CR>
