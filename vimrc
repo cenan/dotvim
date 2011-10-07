@@ -188,7 +188,7 @@ let g:buftabs_in_statusline=0
 let g:buftabs_active_highlight_group="Visual"
 let g:netrw_ftp_cmd="ftp -p"
 let g:netrw_localmovecmd = 'move'
-let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o']
+let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
 let g:snips_author = 'Cenan Özen'
 
 
