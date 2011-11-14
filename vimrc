@@ -61,18 +61,22 @@ if has("gui_running")
 	else
 		set guifont=Monaco\ 10
 	end
-	colorscheme Tomorrow-Night-Eighties
+	set background=light
+	colorscheme solarized
 else
 	set t_Co=256
+	let g:solarized_termcolors=256
+	let g:solarized_termtrans=1
 	if has("win32")
 		colorscheme Borland
 	else
-		colorscheme Tomorrow-Night-Eighties
+		set background=light
+		colorscheme solarized
 	end
 endif
 
 set fillchars=""			 " no window seperator character
-set nocursorline			 " highlight current line
+set cursorline			     " highlight current line
 set nocursorcolumn			 " don't highlight current column
 set number					 " show line numbers
 set listchars=tab:▸\ ,eol:¬
@@ -95,6 +99,7 @@ nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
 nnoremap <silent> <leader>c3 :colorscheme Tomorrow-Night-Blue<cr>
 nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
 nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
+nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
