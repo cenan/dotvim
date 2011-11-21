@@ -101,6 +101,8 @@ nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
 nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
 nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
 
+set pastetoggle=<F8>
+
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
