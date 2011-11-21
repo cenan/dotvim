@@ -1,36 +1,36 @@
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
-	url = git@github.com:kchmck/vim-coffee-script.git
+	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
-	url = git@github.com:majutsushi/tagbar.git
+	url = git://github.com/majutsushi/tagbar.git
 [submodule "bundle/zencoding-vim"]
 	path = bundle/zencoding-vim
-	url = git@github.com:mattn/zencoding-vim.git
+	url = git://github.com/mattn/zencoding-vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundle/buftabs"]
 	path = bundle/buftabs
-	url = git@github.com:vim-scripts/buftabs.git
+	url = git://github.com/vim-scripts/buftabs.git
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
-	url = git@github.com:msanders/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
-	url = git@github.com:digitaltoad/vim-jade.git
+	url = git://github.com/digitaltoad/vim-jade.git
 [submodule "bundle/vim-makegreen.git"]
 	path = bundle/vim-makegreen.git
-	url = git@github.com:reinh/vim-makegreen.git
+	url = git://github.com/reinh/vim-makegreen.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
+	url = git://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-css-color"]
 	path = bundle/vim-css-color
-	url = git@github.com:ap/vim-css-color.git
+	url = git://github.com/ap/vim-css-color.git
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = git://github.com/lunaru/vim-less.git
