@@ -24,6 +24,6 @@ Updating all plugins:
 Adding a new plugin:
 
 	cd ~/.vim
-	git submodule add https://github.com/foo/bar.git bundle/bar.vim
+	git submodule add git://github.com/foo/bar.git bundle/bar.vim
 
 
