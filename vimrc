@@ -168,7 +168,7 @@ if has('autocmd')
 	autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
-	autocmd BufWritePost *.coffee silent CoffeeMake! -b
+	autocmd BufWritePost *.coffee silent CoffeeMake!
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 
