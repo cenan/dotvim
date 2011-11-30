@@ -70,8 +70,8 @@ else
 	if has("win32")
 		colorscheme Borland
 	else
-		set background=light
-		colorscheme solarized
+		"set background=light
+		colorscheme molokai
 	end
 endif
 
@@ -107,6 +107,7 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
 map <C-J> :bp<CR>
+nmap <S-Tab> :bp<CR>
 nmap <Tab> :bn<CR>
 map <C-K> :bn<CR>
 map <a-x> :Bclose<CR>
