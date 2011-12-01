@@ -105,6 +105,7 @@ set pastetoggle=<F8>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
+nmap <silent> <Space> :NERDTreeClose <bar> TagbarClose<CR>
 
 map <C-J> :bp<CR>
 nmap <S-Tab> :bp<CR>
