@@ -102,6 +102,9 @@ nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
 nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
 nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
 
+" replace the selection in visual-mode
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
 set pastetoggle=<F8>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
