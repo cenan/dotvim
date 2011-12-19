@@ -43,8 +43,8 @@ if has('statusline')
 	set laststatus=2
 	"set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exi
 	"  sts(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
-	"set statusline=%=%m(%{\&ff})%y\ %l/%L(%p%%)
-	set statusline=%=%m%l/%L-%p%%
+	set statusline=%=%m(%{\&ff})%y\ %l/%L(%p%%)
+	"set statusline=%=%m%l/%L-%p%%
 	au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
 	au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
