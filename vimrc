@@ -85,13 +85,12 @@ set listchars=tab:▸\ ,eol:¬
 
 " *** Keys ***
 let mapleader = ","
-nnoremap <silent> <Leader>v :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>r :set noet\|retab!<CR>
-nnoremap <silent> <Leader>l :set list!<CR>
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
-nnoremap <silent> <Leader>p :call PythonMode()<CR>
-nnoremap <silent> <Leader>s :call ToggleSyntax()<CR>
-nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
+nnoremap <silent> <Leader>v :edit $MYVIMRC<cr>
+nnoremap <silent> <Leader>r :set noet\|retab!<cr>
+nnoremap <silent> <Leader>l :set list!<cr>
+nnoremap <silent> <Leader>ml :call AppendModeline()<cr>
+nnoremap <silent> <Leader>s :call ToggleSyntax()<cr>
+nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<cr>
 nnoremap <silent> <Leader>h :nohlsearch<cr>
 nnoremap <silent> <leader>sc :!scons<cr>
 nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
@@ -113,12 +112,9 @@ nmap <silent> <Space> :NERDTreeClose <bar> TagbarClose<CR>
 
 map <C-J> :bp<CR>
 nmap <S-Tab> :bp<CR>
-nmap <Tab> :bn<CR>
 map <C-K> :bn<CR>
-map <a-x> :Bclose<CR>
+nmap <Tab> :bn<CR>
 
-imap <F11> <ESC>"+y<CR>
-imap <F12> <ESC>"+gP<CR>
 inoremap <c-space> <C-x><C-o>
 " save anyway when you forget to sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -219,11 +215,6 @@ function! ToggleSyntax()
 	else
 		syntax enable
 	endif
-endfunction
-
-function! PythonMode()
-	set guifont=Inconsolata\ Medium\ 12
-	colorscheme django
 endfunction
 
 " Append modeline after last line in buffer.
