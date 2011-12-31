@@ -29,7 +29,11 @@ else
 	set backup
 	set backupdir=$HOME/.temp//  " for backup files
 	set directory=$HOME/.temp//  " for swap files
-	silent execute '!mkdir -p $HOME/.temp'
+	if exists("*mkdir")
+		if !isdirectory($HOME . "/.temp")
+			call mkdir($HOME . "/.temp", "p")
+		endif
+	endif
 endif
 
 
