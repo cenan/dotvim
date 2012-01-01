@@ -177,6 +177,7 @@ if has('autocmd')
 	autocmd BufWritePost *.coffee silent CoffeeMake!
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
+	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
 
 	autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
