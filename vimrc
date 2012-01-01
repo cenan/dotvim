@@ -10,9 +10,9 @@ set encoding=utf-8 fileencodings=
 set foldmethod=marker
 
 " *** Search ***
-set incsearch				 " do incremental searching
 set hlsearch				 " lighlight search items
 set ignorecase				 " case insensitive search
+set incsearch				 " do incremental searching
 set smartcase				 " ignore case when only lowercase
 
 
@@ -81,7 +81,7 @@ else
 endif
 
 set fillchars=""			 " no window seperator character
-set cursorline			     " highlight current line
+set cursorline				 " highlight current line
 set nocursorcolumn			 " don't highlight current column
 set number					 " show line numbers
 set listchars=tab:▸\ ,eol:¬
@@ -89,21 +89,21 @@ set listchars=tab:▸\ ,eol:¬
 
 " *** Keys ***
 let mapleader = ","
-nnoremap <silent> <Leader>v :edit $MYVIMRC<cr>
-nnoremap <silent> <Leader>r :set noet\|retab!<cr>
+nnoremap <silent> <Leader>h :nohlsearch<cr>
 nnoremap <silent> <Leader>l :set list!<cr>
 nnoremap <silent> <Leader>ml :call AppendModeline()<cr>
+nnoremap <silent> <Leader>r :set noet\|retab!<cr>
 nnoremap <silent> <Leader>s :call ToggleSyntax()<cr>
+nnoremap <silent> <Leader>v :edit $MYVIMRC<cr>
 nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<cr>
-nnoremap <silent> <Leader>h :nohlsearch<cr>
-nnoremap <silent> <leader>sc :!scons<cr>
-nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
 nnoremap <silent> <leader>c1 :colorscheme Tomorrow<cr>
 nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
 nnoremap <silent> <leader>c3 :colorscheme Tomorrow-Night-Blue<cr>
 nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
 nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
+nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
 nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
+nnoremap <silent> <leader>sc :!scons<cr>
 
 " replace the selection in visual-mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
@@ -154,7 +154,7 @@ set lazyredraw				 " don't update the screen while playing macros
 set mousehide				 " hide pointer while typing
 set clipboard+=unnamed		 " supposed to use the system clipboard
 set swapsync=
-set shortmess+=I             " remove useless splash screen
+set shortmess+=I			 " remove useless splash screen
 
 " *** AutoComplete ***
 set completeopt=longest,menuone
@@ -193,16 +193,16 @@ endif
 
 
 " *** Plug-ins ***
-let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
-let g:user_zen_expandabbr_key = '<c-d>'
-let g:use_zen_complete_tag = 1
-let g:buftabs_only_basename=1
-let g:buftabs_in_statusline=0
+let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
 let g:buftabs_active_highlight_group="Visual"
+let g:buftabs_in_statusline=0
+let g:buftabs_only_basename=1
 let g:netrw_ftp_cmd="ftp -p"
 let g:netrw_localmovecmd = 'move'
-let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
+let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 let g:snips_author = 'Cenan Özen'
+let g:use_zen_complete_tag = 1
+let g:user_zen_expandabbr_key = '<c-d>'
 
 
 " *** Functions ***
