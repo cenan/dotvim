@@ -76,7 +76,11 @@ else
 		colorscheme Borland
 	else
 		"set background=light
-		colorscheme molokai
+		if system("hostname") == "tokyo"
+			colorscheme molokai
+		else
+			colorscheme Tomorrow-Night-Eighties
+		endif
 	end
 endif
 
