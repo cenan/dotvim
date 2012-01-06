@@ -76,7 +76,7 @@ else
 		colorscheme Borland
 	else
 		"set background=light
-		if hostname() == 'tokyo'
+		if index(['tokyo','pegasus'], hostname()) > 0
 			colorscheme molokai
 		else
 			colorscheme Tomorrow-Night-Eighties
