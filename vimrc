@@ -93,13 +93,22 @@ set listchars=tab:▸\ ,eol:¬
 
 " *** Keys ***
 let mapleader = ","
+" echo filename
+nnoremap <silent> <Leader>f :echo @%<cr>
+" turn off search highlighting
 nnoremap <silent> <Leader>h :nohlsearch<cr>
+" show tab and crlf characters
 nnoremap <silent> <Leader>l :set list!<cr>
+" append mode line to end of current file
 nnoremap <silent> <Leader>ml :call AppendModeline()<cr>
+" tabs to spaces
 nnoremap <silent> <Leader>r :set noet\|retab!<cr>
+" toggle syntax highlighting
 nnoremap <silent> <Leader>s :call ToggleSyntax()<cr>
+" edit .vimrc
 nnoremap <silent> <Leader>v :edit $MYVIMRC<cr>
 nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<cr>
+" change colorscheme
 nnoremap <silent> <leader>c1 :colorscheme Tomorrow<cr>
 nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
 nnoremap <silent> <leader>c3 :colorscheme Tomorrow-Night-Blue<cr>
