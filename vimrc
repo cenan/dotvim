@@ -77,7 +77,7 @@ else
 	else
 		"set background=light
 		if index(['tokyo','pegasus'], hostname()) >= 0
-			colorscheme molokai
+			colorscheme Tomorrow-Night-Bright
 		else
 			colorscheme Tomorrow-Night-Eighties
 		endif
@@ -217,6 +217,12 @@ let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 let g:snips_author = 'Cenan Özen'
 let g:use_zen_complete_tag = 1
 let g:user_zen_expandabbr_key = '<c-d>'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\.git$\|\.hg$\|\.temp$',
+  \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$',
+  \ 'link': '',
+  \ }
 
 
 " *** Functions ***
