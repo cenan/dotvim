@@ -63,9 +63,9 @@ if has("gui_running")
 	if has("win32")
 		set guifont=Monaco:h14:cTURKISH
 	else
-		set guifont=Monaco\ 10
+		set guifont=Consolas\ 13
 	end
-	set background=light
+	set background=dark
 	colorscheme solarized
 else
 	syntax on
@@ -191,6 +191,7 @@ if has('autocmd')
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
+	autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
 
 	autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
