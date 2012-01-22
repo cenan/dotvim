@@ -25,6 +25,7 @@ set smartindent
 " *** Directories ***
 if has("win32")
 	set nobackup
+	set noswapfile
 else
 	set backup
 	set backupdir=$HOME/.temp//  " for backup files
@@ -47,8 +48,11 @@ if has('statusline')
 	set laststatus=2
 	"set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exi
 	"  sts(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
-	set statusline=%=%m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
-	"set statusline=%=%m%l/%L-%p%%
+	if has("win32")
+		set statusline=%=%m%l/%L-%p%%
+	else
+		set statusline=%=%m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
+	endif
 	au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
 	au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
@@ -61,12 +65,13 @@ if has("gui_running")
 	syntax on
 	set guioptions=gmr
 	if has("win32")
-		set guifont=Monaco:h14:cTURKISH
+		set guifont=Monaco:h12:cTURKISH
+		colorscheme molokai
 	else
 		set guifont=Consolas\ 13
+		set background=dark
+		colorscheme solarized
 	end
-	set background=dark
-	colorscheme solarized
 else
 	syntax on
 	set t_Co=256
@@ -124,8 +129,14 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 set pastetoggle=<F8>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :TagbarToggle<CR>
-nmap <silent> <Space> :NERDTreeClose <bar> TagbarClose<CR>
+if !has("win32")
+	nmap <silent> <F3> :TagbarToggle<CR>
+endif
+if has("win32")
+	nmap <silent> <Space> :NERDTreeClose<cr>
+else
+	nmap <silent> <Space> :NERDTreeClose <bar> TagbarClose<cr>
+endif
 
 map <C-J> :bp<CR>
 nmap <S-Tab> :bp<CR>
@@ -202,7 +213,9 @@ if has('autocmd')
 	" position when opening a file.
 	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 	autocmd! BufWritePost .vimrc source $MYVIMRC
-
+	if has("win32")
+		autocmd! BufWritePost vimrc source $MYVIMRC
+	endif
 	" set autoread
 endif
 
