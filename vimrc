@@ -268,7 +268,7 @@ endfunction
 " *** Misc ***
 
 " source machine local config if it exists
-if filereadable("local.vim")
-   source local.vim
+if filereadable($HOME . "/.vim/local.vim")
+   source $HOME/.vim/local.vim
 endif 
 
