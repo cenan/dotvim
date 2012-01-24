@@ -265,3 +265,10 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 
+" *** Misc ***
+
+" source machine local config if it exists
+if filereadable("local.vim")
+   source local.vim
+endif 
+
