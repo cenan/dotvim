@@ -1,2 +1,2 @@
-let $MYVIMRC = "c:/Users/cenan/dotvim/vimrc"
-source c:/Users/cenan/dotvim/vimrc
+let $MYVIMRC = $USERPROFILE . "/dotvim/vimrc"
+source $MYVIMRC
