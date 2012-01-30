@@ -135,7 +135,7 @@ endif
 if has("win32")
 	nmap <silent> <Space> :NERDTreeClose<cr>
 else
-	nmap <silent> <Space> :NERDTreeClose <bar> TagbarClose<cr>
+	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
 endif
 
 map <C-J> :bp<CR>
