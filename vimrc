@@ -234,7 +234,7 @@ let g:user_zen_expandabbr_key = '<c-d>'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.hg$\|\.temp$',
-  \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$',
+  \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$\|\.o$',
   \ 'link': '',
   \ }
 
