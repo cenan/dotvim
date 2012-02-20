@@ -1,28 +1,29 @@
 set nocompatible			 " must be the first line
 
+" *** Pathogen Settings *** {{{1
 call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
 " call pathogen#helptags()
 
-" *** General Settings ***
+" *** General Settings *** {{{1
 set history=500				 " command line history
 set encoding=utf-8 fileencodings=
 set foldmethod=marker
 
-" *** Search ***
+" *** Search *** {{{2
 set hlsearch				 " lighlight search items
 set ignorecase				 " case insensitive search
 set incsearch				 " do incremental searching
 set smartcase				 " ignore case when only lowercase
 
 
-" *** Indentation ***
+" *** Indentation *** {{{2
 set shiftwidth=4			 " number of spaces to use for each step of (auto)indent
 set tabstop=4				 " number of spaces a tab counts for
 set smartindent
 
 
-" *** Directories ***
+" *** Directories *** {{{2
 if has("win32")
 	set nobackup
 	set noswapfile
@@ -38,7 +39,7 @@ else
 endif
 
 
-" *** UI ***
+" *** UI *** {{{1
 if has('cmdline_info')
 	set ruler				 " always show the cursor position
 	set showcmd				 " display incomplete commands
@@ -51,7 +52,7 @@ if has('statusline')
 	if has("win32")
 		set statusline=%=%m%l/%L-%p%%
 	else
-		set statusline=%=%m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
+		set statusline=%=%{SyntasticStatuslineFlag()}\ %m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
 	endif
 	au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
 	au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
@@ -94,9 +95,12 @@ set cursorline				 " highlight current line
 set nocursorcolumn			 " don't highlight current column
 set number					 " show line numbers
 set listchars=tab:▸\ ,eol:¬
+set listchars+=trail:←
+set listchars+=extends:»
+set listchars+=precedes:«
 
 
-" *** Keys ***
+" *** Keys *** {{{1
 let mapleader = ","
 " echo filename
 nnoremap <silent> <Leader>f :echo @%<cr>
@@ -148,7 +152,7 @@ inoremap <c-space> <C-x><C-o>
 cmap w!! w !sudo tee % >/dev/null
 
 
-" *** Key Fixes ***
+" *** Key Fixes *** {{{2
 set backspace=indent,eol,start
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -162,17 +166,17 @@ cmap Q q
 cmap WQ wq
 cmap Wq wq
 
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 "imap <up> <nop>
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
 
 
-" *** Misc Fixes ***
+" *** Misc Fixes *** {{{1
 set hidden					 " fix 'must save first' when changing buffers
 set lazyredraw				 " don't update the screen while playing macros
 set mousehide				 " hide pointer while typing
@@ -180,7 +184,7 @@ set clipboard+=unnamed		 " supposed to use the system clipboard
 set swapsync=
 set shortmess+=I			 " remove useless splash screen
 
-" *** AutoComplete ***
+" *** AutoComplete *** {{{1
 set completeopt=longest,menuone
 set wildmenu
 "set wildmode=list:longest
@@ -189,7 +193,7 @@ if has('unix')
 endif
 
 
-" *** Filetype settings ***
+" *** Filetype settings *** {{{1
 if has('autocmd')
 	filetype plugin indent on
 	autocmd BufNewFile,BufRead *.txt setlocal filetype=text
@@ -220,7 +224,7 @@ if has('autocmd')
 endif
 
 
-" *** Plug-ins ***
+" *** Plugin related settings *** {{{1
 let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
 let g:buftabs_active_highlight_group="Visual"
 let g:buftabs_in_statusline=0
@@ -239,7 +243,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 
-" *** Functions ***
+" *** Functions *** {{{1
 if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 endif
@@ -258,6 +262,7 @@ endfunction
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
+" TODO: check for existing modeline
 function! AppendModeline()
   let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
 		\ &tabstop, &shiftwidth, &textwidth)
@@ -265,7 +270,7 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 
-" *** Misc ***
+" *** Misc *** {{{1
 
 " source machine local config if it exists
 if filereadable($HOME . "/.vim/local.vim")
