@@ -1,9 +1,9 @@
 set nocompatible			 " must be the first line
 
 " *** Pathogen Settings *** {{{1
-call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
-" call pathogen#helptags()
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " *** General Settings *** {{{1
 set history=500				 " command line history
@@ -11,7 +11,7 @@ set encoding=utf-8 fileencodings=
 set foldmethod=marker
 
 " *** Search *** {{{2
-set hlsearch				 " lighlight search items
+set hlsearch				 " highlight search items
 set ignorecase				 " case insensitive search
 set incsearch				 " do incremental searching
 set smartcase				 " ignore case when only lowercase
@@ -90,7 +90,7 @@ else
 	end
 endif
 
-set fillchars=""			 " no window seperator character
+set fillchars=""			 " no window separator character
 set cursorline				 " highlight current line
 set nocursorcolumn			 " don't highlight current column
 set number					 " show line numbers
@@ -170,10 +170,10 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 
 " *** Misc Fixes *** {{{1
@@ -224,7 +224,7 @@ if has('autocmd')
 endif
 
 
-" *** Plugin related settings *** {{{1
+" *** Plug-in related settings *** {{{1
 let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
 let g:buftabs_active_highlight_group="Visual"
 let g:buftabs_in_statusline=0
@@ -272,7 +272,7 @@ endfunction
 
 " *** Misc *** {{{1
 
-" source machine local config if it exists
+" source machine local configuration if it exists
 if filereadable($HOME . "/.vim/local.vim")
    source $HOME/.vim/local.vim
 endif 
