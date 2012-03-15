@@ -151,6 +151,8 @@ inoremap <c-space> <C-x><C-o>
 " save anyway when you forget to sudo
 cmap w!! w !sudo tee % >/dev/null
 
+vmap <C-S-Up> dkP`[V`]
+vmap <C-S-Down> dp`[V`]
 
 " *** Key Fixes *** {{{2
 set backspace=indent,eol,start
@@ -166,14 +168,14 @@ cmap Q q
 cmap WQ wq
 cmap Wq wq
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
 
 
 " *** Misc Fixes *** {{{1
@@ -236,6 +238,7 @@ let g:snips_author = 'Cenan Özen'
 let g:use_zen_complete_tag = 1
 let g:user_zen_expandabbr_key = '<c-d>'
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.hg$\|\.temp$',
   \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$\|\.o$',
