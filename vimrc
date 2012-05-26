@@ -245,7 +245,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$\|\.o$',
   \ 'link': '',
   \ }
-
+"let ctrlp_match_window_bottom = 0
+"let ctrlp_match_window_reversed = 0
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
