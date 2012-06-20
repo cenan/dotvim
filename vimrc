@@ -85,7 +85,11 @@ else
 		if index(['tokyo','pegasus'], hostname()) >= 0
 			colorscheme Tomorrow-Night-Bright
 		else
-			colorscheme Tomorrow-Night-Eighties
+			if has("mac")
+				colorscheme molokai
+			else
+				colorscheme Tomorrow-Night-Eighties
+			endif
 		endif
 	end
 endif
