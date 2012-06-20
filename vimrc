@@ -163,8 +163,8 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-cmap W w
-cmap Q q
+"cmap W w
+"cmap Q q
 cmap WQ wq
 cmap Wq wq
 
