@@ -49,3 +49,6 @@
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
+[submodule "bundle/nodeunit.vim"]
+	path = bundle/nodeunit.vim
+	url = git://github.com/lambdalisue/nodeunit.vim.git
