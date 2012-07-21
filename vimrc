@@ -141,13 +141,12 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 set pastetoggle=<F8>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
-if !has("win32")
+if executable("ctags")
 	nmap <silent> <F3> :TagbarToggle<CR>
-endif
-if has("win32")
-	nmap <silent> <Space> :NERDTreeClose<cr>
-else
 	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
+else
+	nmap <silent> <F3> :echo "No Ctags found, Tagbar is not available"<cr>
+	nmap <silent> <Space> :NERDTreeClose<cr>
 endif
 
 map <C-J> :bp<CR>
