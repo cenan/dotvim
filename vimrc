@@ -134,6 +134,7 @@ nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
 nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
 nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
 nnoremap <silent> <leader>sc :!scons<cr>
+nnoremap <silent> <leader>j :%!python -m json.tool<cr>
 
 " replace the selection in visual-mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
