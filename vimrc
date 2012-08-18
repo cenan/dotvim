@@ -110,6 +110,7 @@ endif
 
 " *** Keys *** {{{1
 let mapleader = ","
+imap jj <esc>
 " echo filename
 nnoremap <silent> <Leader>f :echo @%<cr>
 " turn off search highlighting
@@ -142,6 +143,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 set pastetoggle=<F8>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <C-S-n> :NERDTreeToggle<CR>
 if executable("ctags")
 	nmap <silent> <F3> :TagbarToggle<CR>
 	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
@@ -257,6 +259,8 @@ let g:ctrlp_custom_ignore = {
   \ }
 "let ctrlp_match_window_bottom = 0
 "let ctrlp_match_window_reversed = 0
+
+let g:user_zen_settings = {'less': {'filters': 'fc','extends': 'css'}}
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
