@@ -54,8 +54,8 @@ if has('statusline')
 	else
 		set statusline=%=%{SyntasticStatuslineFlag()}\ %m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
 	endif
-	au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
-	au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
+	"au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
+	"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
 
 if has('mouse')
