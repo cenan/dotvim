@@ -257,9 +257,10 @@ let g:snips_author = 'Cenan Özen'
 let g:use_zen_complete_tag = 1
 let g:user_zen_expandabbr_key = '<c-d>'
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'rc'
+let g:ctrlp_dotfiles = 0
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git$\|\.hg$\|\.temp$',
+  \ 'dir': '\.git$\|\.hg$\|\.temp$|node_modules$',
   \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$\|\.o$',
   \ 'link': '',
   \ }
