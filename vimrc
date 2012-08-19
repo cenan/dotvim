@@ -168,6 +168,8 @@ cmap w!! w !sudo tee % >/dev/null
 vmap <C-S-Up> dkP`[V`]
 vmap <C-S-Down> dp`[V`]
 
+nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
+
 " *** Key Fixes *** {{{2
 set backspace=indent,eol,start
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
