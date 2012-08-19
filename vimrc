@@ -140,7 +140,11 @@ nnoremap <silent> <leader>j :%!python -m json.tool<cr>
 " replace the selection in visual-mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
-set pastetoggle=<F8>
+if has('autocmd')
+	nmap <F8> :set paste<cr>i
+	autocmd InsertLeave * set nopaste
+	inoremap <c-c> <esc>
+endif
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <C-S-n> :NERDTreeToggle<CR>
