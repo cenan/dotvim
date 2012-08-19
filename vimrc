@@ -111,10 +111,10 @@ endif
 " *** Keys *** {{{1
 let mapleader = ","
 imap jj <esc>
+" turn off search highlighting
+map // :nohlsearch<cr>
 " echo filename
 nnoremap <silent> <Leader>f :echo @%<cr>
-" turn off search highlighting
-nnoremap <silent> <Leader>h :nohlsearch<cr>
 " show tab and crlf characters
 nnoremap <silent> <Leader>l :set list!<cr>
 " append mode line to end of current file
