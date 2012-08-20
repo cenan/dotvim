@@ -119,6 +119,7 @@ nnoremap <silent> <Leader>f :echo @%<cr>
 nnoremap <silent> <Leader>l :set list!<cr>
 " append mode line to end of current file
 nnoremap <silent> <Leader>ml :call AppendModeline()<cr>
+nnoremap <silent> <Leader>mlf :call AppendModelineFileType()<cr>
 " tabs to spaces
 nnoremap <silent> <Leader>r :set noet\|retab!<cr>
 " toggle syntax highlighting
@@ -294,6 +295,12 @@ function! AppendModeline()
 		\ &tabstop, &shiftwidth, &textwidth)
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
+endfunction
+
+function! AppendModelineFileType()
+	let l:modeline = printf(" vim: set filetype=%s : ", &filetype)
+	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+	call append(line("$"), l:modeline)
 endfunction
 
 " *** Misc *** {{{1
