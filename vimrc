@@ -227,6 +227,7 @@ if has('autocmd')
 	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
+	autocmd BufNewFile,BufRead *.twig setlocal filetype=htmldjango
 	autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
 	autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 
