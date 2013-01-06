@@ -153,7 +153,7 @@ if executable("ctags")
 	nmap <silent> <F3> :TagbarToggle<CR>
 	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
 else
-	nmap <silent> <F3> :echo "No Ctags found, Tagbar is not available"<cr>
+	nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
 	nmap <silent> <Space> :NERDTreeClose<cr>
 endif
 
@@ -227,7 +227,7 @@ if has('autocmd')
 	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
-	autocmd BufNewFile,BufRead *.twig setlocal filetype=htmldjango
+	autocmd BufNewFile,BufRead *.twig setlocal filetype=twig
 	autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
 	autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 
