@@ -112,7 +112,7 @@ endif
 let mapleader = ","
 imap jj <esc>
 " turn off search highlighting
-map // :nohlsearch<cr>
+map // :nohlsearch <bar> cclose <cr>
 " echo filename
 nnoremap <silent> <Leader>f :echo @%<cr>
 " show tab and crlf characters
@@ -154,7 +154,7 @@ if executable("ctags")
 	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
 else
 	nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
-	nmap <silent> <Space> :NERDTreeClose<cr>
+	nmap <silent> <Space> :NERDTreeClose <bar> cclose <cr>
 endif
 
 map <C-J> :bp<CR>
