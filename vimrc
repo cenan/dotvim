@@ -219,11 +219,13 @@ if has('autocmd')
 	autocmd FileType text setlocal textwidth=78 complete+=k infercase
 	autocmd FileType html setlocal shiftwidth=4 tabstop=4
 	autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+	autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType javascript setlocal expandtab
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
 	autocmd BufWritePost *.coffee silent CoffeeMake!
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
+	autocmd BufNewFile,BufRead *.fab setlocal filetype=python
 	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
 	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
