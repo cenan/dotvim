@@ -169,7 +169,9 @@ cmap w!! w !sudo tee % >/dev/null
 vmap <C-S-Up> dkP`[V`]
 vmap <C-S-Down> dp`[V`]
 
-nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
+
+noremap <silent> <F12> :set number!<CR>
 
 " *** Key Fixes *** {{{2
 set backspace=indent,eol,start
