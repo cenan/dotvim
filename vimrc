@@ -69,7 +69,7 @@ if has("gui_running")
 		set guifont=Monaco:h12:cTURKISH
 		colorscheme molokai
 	else
-		set guifont=Consolas\ 13
+		set guifont=Inconsolata\ 10
 		set background=dark
 		colorscheme solarized
 	end
