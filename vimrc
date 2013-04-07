@@ -110,23 +110,30 @@ endif
 
 " *** Keys *** {{{1
 let mapleader = ","
-imap jj <esc>
-" turn off search highlighting
-map // :nohlsearch <bar> cclose <cr>
+imap jk <esc>
+
+" turn off search highlighting, close quickfix pane
+noremap // :nohlsearch <bar> cclose <cr>
+
 " echo filename
-nnoremap <silent> <Leader>f :echo @%<cr>
+nnoremap <silent> <leader>f :echo @%<cr>
+
 " show tab and crlf characters
-nnoremap <silent> <Leader>l :set list!<cr>
+nnoremap <silent> <leader>l :set list!<cr>
+
 " append mode line to end of current file
-nnoremap <silent> <Leader>ml :call AppendModeline()<cr>
-nnoremap <silent> <Leader>mlf :call AppendModelineFileType()<cr>
+nnoremap <silent> <leader>ml :call AppendModeline()<cr>
+nnoremap <silent> <leader>mlf :call AppendModelineFileType()<cr>
+
 " tabs to spaces
-nnoremap <silent> <Leader>r :set noet\|retab!<cr>
+nnoremap <silent> <leader>r :set noet\|retab!<cr>
+
 " toggle syntax highlighting
-nnoremap <silent> <Leader>s :call ToggleSyntax()<cr>
+nnoremap <silent> <leader>x :call ToggleSyntax()<cr>
+
 " edit .vimrc
-nnoremap <silent> <Leader>v :edit $MYVIMRC<cr>
-nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<cr>
+nnoremap <silent> <leader>v :edit $MYVIMRC<cr>
+nnoremap <silent> <leader>z :let &scrolloff=999-&scrolloff<cr>
 " change colorscheme
 nnoremap <silent> <leader>c1 :colorscheme Tomorrow<cr>
 nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
@@ -141,30 +148,32 @@ nnoremap <silent> <leader>j :%!python -m json.tool<cr>
 " replace the selection in visual-mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
+nnoremap <leader>s :Gstatus<cr>
+
 if has('autocmd')
 	nmap <F8> :set paste<cr>i
 	autocmd InsertLeave * set nopaste
 	inoremap <c-c> <esc>
 endif
 
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <C-S-n> :NERDTreeToggle<CR>
+noremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <C-S-n> :NERDTreeToggle<CR>
 if executable("ctags")
 	nmap <silent> <F3> :TagbarToggle<CR>
-	nmap <silent> <Space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
+	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
 else
 	nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
-	nmap <silent> <Space> :NERDTreeClose <bar> cclose <cr>
+	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <cr>
 endif
 
-map <C-J> :bp<CR>
-nmap <S-Tab> :bp<CR>
-map <C-K> :bn<CR>
-nmap <Tab> :bn<CR>
+noremap <C-J> :bp<CR>
+nnoremap <S-Tab> :bp<CR>
+noremap <C-K> :bn<CR>
+nnoremap <Tab> :bn<CR>
 
 inoremap <c-space> <C-x><C-o>
 " save anyway when you forget to sudo
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 vmap <C-S-Up> dkP`[V`]
 vmap <C-S-Down> dp`[V`]
@@ -178,23 +187,20 @@ set backspace=indent,eol,start
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
+
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 "cmap W w
 "cmap Q q
-cmap WQ wq
-cmap Wq wq
+cnoremap WQ wq
+cnoremap Wq wq
 
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
+"noremap <up> <nop>
+"noremap <down> <nop>
+"noremap <left> <nop>
+"noremap <right> <nop>
 
 
 " *** Misc Fixes *** {{{1
@@ -213,6 +219,10 @@ if has('unix')
 	set dictionary+=/usr/share/dict/words
 endif
 
+" *** Abbreviations *** {{{1
+
+iab tihs this
+iab tehn then
 
 " *** Filetype settings *** {{{1
 if has('autocmd')
@@ -222,10 +232,11 @@ if has('autocmd')
 	autocmd FileType html setlocal shiftwidth=4 tabstop=4
 	autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
 	autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
+	autocmd FileType coffee setlocal expandtab
 	autocmd FileType javascript setlocal expandtab
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
-	autocmd BufWritePost *.coffee silent CoffeeMake!
+	" autocmd BufWritePost *.coffee silent CoffeeMake!
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
 	autocmd BufNewFile,BufRead *.fab setlocal filetype=python
 	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
@@ -314,4 +325,9 @@ endfunction
 if filereadable($HOME . "/.vim/local.vim")
    source $HOME/.vim/local.vim
 endif 
+
+" The following autocommand will cause the quickfix window to open after any grep invocation:
+if has('autocmd')
+	autocmd QuickFixCmdPost *grep* cwindow
+endif
 
