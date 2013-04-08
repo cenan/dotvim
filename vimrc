@@ -133,6 +133,8 @@ nnoremap <silent> <leader>f :echo @%<cr>
 " show tab and crlf characters
 nnoremap <silent> <leader>l :set list!<cr>
 
+nnoremap <silent> <leader>me :messages<cr>
+
 " append mode line to end of current file
 nnoremap <silent> <leader>ml :call AppendModeline()<cr>
 nnoremap <silent> <leader>mlf :call AppendModelineFileType()<cr>
@@ -182,6 +184,10 @@ noremap <C-J> :bp<CR>
 nnoremap <S-Tab> :bp<CR>
 noremap <C-K> :bn<CR>
 nnoremap <Tab> :bn<CR>
+
+" Disable Tab and S-Tab on NERDTree window
+autocmd FileType nerdtree noremap <buffer> <S-Tab> <nop>
+autocmd FileType nerdtree noremap <buffer> <Tab> <nop>
 
 inoremap <c-space> <C-x><C-o>
 " save anyway when you forget to sudo
