@@ -52,3 +52,6 @@
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/buftabs.git"]
+	path = bundle/buftabs.git
+	url = git://github.com/zefei/buftabs.git
