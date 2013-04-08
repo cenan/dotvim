@@ -160,6 +160,9 @@ if g:lucius_style == "dark"
     hi ColorColumn  guifg=NONE      guibg=#87875f   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
+    " ## Buftabs ##
+	hi BufLine      guifg=#202020   guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+	hi link BufLineSel TabLineSel
 
 elseif g:lucius_style == "dark_dim"
 
@@ -245,6 +248,9 @@ elseif g:lucius_style == "dark_dim"
     hi ColorColumn  guifg=NONE      guibg=#87875f   ctermfg=NONE   ctermbg=101       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
+    " ## Buftabs ##
+	hi BufLine      guifg=#202020   guibg=#c0c0c0   ctermfg=bg     ctermbg=252       gui=none      cterm=none
+	hi link BufLineSel TabLineSel
 
 elseif g:lucius_style == "light"
 
@@ -330,7 +336,9 @@ elseif g:lucius_style == "light"
     hi ColorColumn  guifg=NONE      guibg=#d7d7af   ctermfg=NONE   ctermbg=187       gui=none      cterm=none
     hi Ignore       guifg=bg                        ctermfg=bg
 
-
+    " ## Buftabs ##
+    hi StatusLine   guifg=#ffffff   guibg=#505050   ctermfg=231    ctermbg=239       gui=none      cterm=none
+    hi link BufLineSel TabLineSel
 endif
 
 
