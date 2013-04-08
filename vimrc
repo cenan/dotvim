@@ -54,7 +54,17 @@ if has('statusline')
 	if has("win32")
 		set statusline=%=%m%l/%L-%p%%
 	else
-		set statusline=%=%{SyntasticStatuslineFlag()}\ %m%3p%%\ %L\ %{fugitive#statusline()}%y\ %{\&ff}
+		set statusline=\#{buftabs}%=
+		if count(g:pathogen_disabled, 'Syntastic') < 1
+			set statusline+=%#warningmsg#
+			set statusline+=%{SyntasticStatuslineFlag()}
+			set statusline+=%*
+		endif
+		set statusline+=\ %m%3p%%
+		if count(g:pathogen_disabled, 'Fugitive') < 1
+			set statusline+=\ %L\ %{fugitive#statusline()}
+		endif
+		set statusline+=%y\ %{\&ff}\ 
 	endif
 	"au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
 	"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
