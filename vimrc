@@ -1,7 +1,9 @@
 set nocompatible			 " must be the first line
 
 " *** Pathogen Settings *** {{{1
-call pathogen#infect()
+let pathogen_disabled=[]
+" call add(g:pathogen_disabled, 'gundo')
+execute pathogen#infect()
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
