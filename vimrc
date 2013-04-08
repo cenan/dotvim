@@ -282,9 +282,18 @@ endif
 
 " *** Plug-in related settings *** {{{1
 let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
-let g:buftabs_active_highlight_group="Visual"
-let g:buftabs_in_statusline=0
+
 let g:buftabs_only_basename=1
+let g:buftabs_marker_modified=" +"
+let g:buftabs_show_number=0
+let g:buftabs_blacklist = ["^NERD_tree_[0-9]*$", "^__Tagbar__$"]
+let g:buftabs_other_components_length=30
+if &t_Co == 256 || has('gui_running')
+  let g:buftabs_active_highlight_group="TabLineSel"
+  let g:buftabs_marker_start=' '
+  let g:buftabs_marker_end=' '
+endif
+
 let g:netrw_ftp_cmd="ftp -p"
 let g:netrw_localmovecmd = 'move'
 let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
