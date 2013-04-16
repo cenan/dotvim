@@ -173,6 +173,7 @@ if has('autocmd')
 	nmap <F8> :set paste<cr>i
 	autocmd InsertLeave * set nopaste
 	inoremap <c-c> <esc>
+	nnoremap <c-c> <nop>
 endif
 
 noremap <silent> <F2> :NERDTreeToggle<CR>
