@@ -4,8 +4,8 @@ set nocompatible			 " must be the first line
 let pathogen_disabled=[]
 " call add(g:pathogen_disabled, 'gundo')
 execute pathogen#infect()
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#helptags()
+execute pathogen#incubate()
 
 " *** General Settings *** {{{1
 set history=500				 " command line history
