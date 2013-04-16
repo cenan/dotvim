@@ -166,6 +166,9 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
 nnoremap <leader>s :Gstatus<cr>
 
+nnoremap <C-h> :lprev<cr>
+nnoremap <C-l> :lnext<cr>
+
 if has('autocmd')
 	nmap <F8> :set paste<cr>i
 	autocmd InsertLeave * set nopaste
@@ -176,10 +179,10 @@ noremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <C-S-n> :NERDTreeToggle<CR>
 if executable("ctags")
 	nmap <silent> <F3> :TagbarToggle<CR>
-	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> TagbarClose<cr>
+	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <bar> TagbarClose <cr>
 else
 	nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
-	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <cr>
+	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <cr>
 endif
 
 noremap <C-J> :bp<CR>
@@ -314,6 +317,10 @@ let g:ctrlp_custom_ignore = {
 "let ctrlp_match_window_reversed = 0
 
 let g:user_zen_settings = {'less': {'filters': 'fc','extends': 'css'}}
+
+let g:syntastic_auto_loc_list = 1
+
+let g:tagbar_ctags_bin='/usr/bin/ctags-exuberant'
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
