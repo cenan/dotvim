@@ -235,6 +235,8 @@ set clipboard+=unnamed		 " supposed to use the system clipboard
 set swapsync=
 set shortmess+=I			 " remove useless splash screen
 
+set whichwrap+=<,>,h,l,[,]
+
 " *** AutoComplete *** {{{1
 set completeopt=longest,menuone
 set wildmenu
