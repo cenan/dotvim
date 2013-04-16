@@ -49,8 +49,6 @@ endif
 
 if has('statusline')
 	set laststatus=2
-	"set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exi
-	"  sts(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 	if has("win32")
 		set statusline=%=%m%l/%L-%p%%
 	else
@@ -66,8 +64,6 @@ if has('statusline')
 		endif
 		set statusline+=%y\ %{\&ff}\ 
 	endif
-	"au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
-	"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
 
 if has('mouse')
@@ -149,15 +145,8 @@ nnoremap <silent> <leader>x :call ToggleSyntax()<cr>
 
 " edit .vimrc
 nnoremap <silent> <leader>v :edit $MYVIMRC<cr>
+
 nnoremap <silent> <leader>z :let &scrolloff=999-&scrolloff<cr>
-" change colorscheme
-nnoremap <silent> <leader>c1 :colorscheme Tomorrow<cr>
-nnoremap <silent> <leader>c2 :colorscheme Tomorrow-Night<cr>
-nnoremap <silent> <leader>c3 :colorscheme Tomorrow-Night-Blue<cr>
-nnoremap <silent> <leader>c4 :colorscheme Tomorrow-Night-Bright<cr>
-nnoremap <silent> <leader>c5 :colorscheme Tomorrow-Night-Eighties<cr>
-nnoremap <silent> <leader>m0 :colorscheme molokai<cr>
-nnoremap <silent> <leader>s1 :colorscheme solarized<cr>
 nnoremap <silent> <leader>sc :!scons<cr>
 nnoremap <silent> <leader>j :%!python -m json.tool<cr>
 
