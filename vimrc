@@ -106,6 +106,8 @@ else
 	end
 endif
 
+set scrolloff=3
+
 set fillchars=""			 " no window separator character
 set cursorline				 " highlight current line
 set nocursorcolumn			 " don't highlight current column
