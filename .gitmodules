@@ -52,3 +52,6 @@
 [submodule "bundle/buftabs.git"]
 	path = bundle/buftabs.git
 	url = git://github.com/zefei/buftabs.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git
