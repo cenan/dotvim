@@ -23,6 +23,8 @@ Switch to the `~/.vim` directory, and fetch submodules:
 	cd ~/.vim
 	git submodule foreach git pull origin master
 
+`git submodule summary` will show what has changed in plugins.
+
 After pulling changes from another terminal, `git submodule update` would sync `.gitmodules` with `bundles` directory.
 
 ## Adding a new plugin
