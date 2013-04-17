@@ -32,6 +32,10 @@ After pulling changes from another terminal, `git submodule update` would sync `
 	cd ~/.vim
 	git submodule add git://github.com/foo/bar.git bundle/bar.vim
 
+After pulling changes from another terminal:
+
+	git submodule update --init bundle/bar.vim
+
 ## Removing a plugin
 
 * Delete the relevant section from the `.gitmodules` file.
