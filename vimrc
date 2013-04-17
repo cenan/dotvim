@@ -315,6 +315,8 @@ let g:syntastic_auto_loc_list = 1
 
 let g:tagbar_ctags_bin='/usr/bin/ctags-exuberant'
 
+let g:gitgutter_highlight_lines = 1
+
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
