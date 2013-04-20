@@ -279,8 +279,11 @@ endif
 
 
 " *** Plug-in related settings *** {{{1
+
+" *** NERDTree *** {{{2
 let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
 
+" *** Buftabs *** {{{2
 let g:buftabs_only_basename=1
 let g:buftabs_marker_modified=" +"
 let g:buftabs_show_number=0
@@ -292,12 +295,7 @@ if &t_Co == 256 || has('gui_running')
   let g:buftabs_marker_end=' '
 endif
 
-let g:netrw_ftp_cmd="ftp -p"
-let g:netrw_localmovecmd = 'move'
-let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
-let g:snips_author = 'Cenan Özen'
-let g:use_zen_complete_tag = 1
-let g:user_zen_expandabbr_key = '<c-d>'
+" *** Ctrl-P *** {{{2
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_dotfiles = 0
@@ -309,13 +307,24 @@ let g:ctrlp_custom_ignore = {
 "let ctrlp_match_window_bottom = 0
 "let ctrlp_match_window_reversed = 0
 
-let g:user_zen_settings = {'less': {'filters': 'fc','extends': 'css'}}
+" *** GitGutter *** {{{2
+let g:gitgutter_highlight_lines = 1
 
+" *** NetRW *** {{{2
+let g:netrw_ftp_cmd="ftp -p"
+let g:netrw_localmovecmd = 'move'
+
+" *** Syntastic *** {{{2
 let g:syntastic_auto_loc_list = 1
 
+" *** TagBar *** {{{2
 let g:tagbar_ctags_bin='/usr/bin/ctags-exuberant'
 
-let g:gitgutter_highlight_lines = 1
+let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
+
+let g:use_zen_complete_tag = 1
+let g:user_zen_expandabbr_key = '<c-d>'
+let g:user_zen_settings = {'less': {'filters': 'fc','extends': 'css'}}
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
