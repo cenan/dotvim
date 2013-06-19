@@ -1,8 +1,10 @@
 set nocompatible			 " must be the first line
 
 " *** Pathogen Settings *** {{{1
-let pathogen_disabled=[]
-" call add(g:pathogen_disabled, 'gundo')
+let pathogen_disabled=['']
+if has("mac")
+	call add(g:pathogen_disabled, 'ultisnips')
+endif
 execute pathogen#infect()
 execute pathogen#helptags()
 execute pathogen#incubate()
