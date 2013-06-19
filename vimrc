@@ -308,7 +308,7 @@ let g:ctrlp_custom_ignore = {
 "let ctrlp_match_window_reversed = 0
 
 " *** GitGutter *** {{{2
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
 
 " *** NetRW *** {{{2
 let g:netrw_ftp_cmd="ftp -p"
