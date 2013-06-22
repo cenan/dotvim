@@ -155,7 +155,9 @@ nnoremap <silent> <leader>j :%!python -m json.tool<cr>
 " replace the selection in visual-mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
-nnoremap <leader>s :Gstatus<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gp :Git push origin master<cr>
 
 nnoremap <C-h> :lprev<cr>
 nnoremap <C-l> :lnext<cr>
