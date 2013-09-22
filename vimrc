@@ -20,7 +20,7 @@ Bundle 'ap/vim-css-color'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
 
-if !has('python')
+if has('python')
 	Bundle 'SirVer/ultisnips'
 endif
 
