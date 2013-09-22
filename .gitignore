@@ -1,2 +1,4 @@
 .netrwhist
 local.vim
+bundle/**
+~bundle/vundle

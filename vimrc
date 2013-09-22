@@ -1,5 +1,18 @@
 set nocompatible			 " must be the first line
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'Tagbar'
+Bundle 'kien/ctrlp.vim'
+
+Bundle 'Syntastic'
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+
 " *** General Settings *** {{{1
 set history=500				 " command line history
 set encoding=utf-8 fileencodings=
@@ -46,15 +59,11 @@ if has('statusline')
 		set statusline=%=%m%l/%L-%p%%
 	else
 		set statusline=\#{buftabs}%=
-		if count(g:pathogen_disabled, 'Syntastic') < 1
-			set statusline+=%#warningmsg#
-			set statusline+=%{SyntasticStatuslineFlag()}
-			set statusline+=%*
-		endif
+		set statusline+=%#warningmsg#
+		set statusline+=%{SyntasticStatuslineFlag()}
+		set statusline+=%*
 		set statusline+=\ %m%3p%%
-		if count(g:pathogen_disabled, 'Fugitive') < 1
-			set statusline+=\ %L\ %{fugitive#statusline()}
-		endif
+		set statusline+=\ %L\ %{fugitive#statusline()}
 		set statusline+=%y\ %{\&ff}\ 
 	endif
 endif
