@@ -9,9 +9,24 @@ Bundle 'Tagbar'
 Bundle 'kien/ctrlp.vim'
 
 Bundle 'Syntastic'
+Bundle 'mattn/emmet-vim'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
+
+Bundle 'CSApprox'
+Bundle 'ap/vim-css-color'
+
+Bundle 'plasticboy/vim-markdown'
+Bundle 'groenewege/vim-less'
+
+Bundle 'SirVer/ultisnips'
+
+" nono/vim-handlebars
+" altercation/vim-colors-solarized
+
+" Python bundles
+" vim-flake8
 
 " *** General Settings *** {{{1
 set history=500				 " command line history
@@ -324,11 +339,12 @@ let g:syntastic_auto_loc_list = 1
 " *** TagBar *** {{{2
 let g:tagbar_ctags_bin='/usr/bin/ctags-exuberant'
 
-let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
+" *** Emmet *** {{{2
+let g:user_emmet_complete_tag = 1
+let g:user_emmet_expandabbr_key = '<c-e>'
+let g:user_emmet_settings = {'less': {'filters': 'fc','extends': 'css'}}
 
-let g:use_zen_complete_tag = 1
-let g:user_zen_expandabbr_key = '<c-d>'
-let g:user_zen_settings = {'less': {'filters': 'fc','extends': 'css'}}
+let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
