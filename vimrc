@@ -1,14 +1,5 @@
 set nocompatible			 " must be the first line
 
-" *** Pathogen Settings *** {{{1
-let pathogen_disabled=['']
-if has("mac")
-	call add(g:pathogen_disabled, 'ultisnips')
-endif
-execute pathogen#infect()
-execute pathogen#helptags()
-execute pathogen#incubate()
-
 " *** General Settings *** {{{1
 set history=500				 " command line history
 set encoding=utf-8 fileencodings=
