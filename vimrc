@@ -20,7 +20,9 @@ Bundle 'ap/vim-css-color'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
 
-Bundle 'SirVer/ultisnips'
+if !has('python')
+	Bundle 'SirVer/ultisnips'
+endif
 
 " nono/vim-handlebars
 " altercation/vim-colors-solarized
