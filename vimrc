@@ -24,6 +24,8 @@ if has('python')
 	Bundle 'SirVer/ultisnips'
 endif
 
+Bundle 'bling/vim-airline'
+
 " nono/vim-handlebars
 " altercation/vim-colors-solarized
 
@@ -347,6 +349,10 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_settings = {'less': {'filters': 'fc','extends': 'css'}}
 
 let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
+
+" *** VimAirline {{{2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
