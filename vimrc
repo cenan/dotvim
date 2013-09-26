@@ -269,6 +269,7 @@ if has('autocmd')
 	autocmd FileType text setlocal textwidth=78 complete+=k infercase
 	autocmd FileType html setlocal shiftwidth=4 tabstop=4
 	autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+	autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType javascript setlocal expandtab
