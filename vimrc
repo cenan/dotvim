@@ -19,6 +19,7 @@ Bundle 'ap/vim-css-color'
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
+Bundle 'kchmck/vim-coffee-script'
 
 if has('python')
 	Bundle 'SirVer/ultisnips'
