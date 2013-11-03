@@ -16,6 +16,7 @@ Bundle 'airblade/vim-gitgutter'
 
 Bundle 'CSApprox'
 Bundle 'ap/vim-css-color'
+Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
@@ -272,6 +273,7 @@ if has('autocmd')
 	autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab
 	autocmd FileType javascript setlocal expandtab
+	autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 	autocmd FileType vim setlocal foldcolumn=2
 	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
