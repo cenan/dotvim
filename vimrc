@@ -281,6 +281,7 @@ if has('autocmd')
 	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
 	" autocmd BufWritePost *.coffee silent CoffeeMake!
 	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
+	autocmd BufNewFile,BufRead *.cap setlocal filetype=ruby
 	autocmd BufNewFile,BufRead *.fab setlocal filetype=python
 	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
 	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
