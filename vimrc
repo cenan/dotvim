@@ -39,6 +39,7 @@ Bundle 'junegunn/vim-emoji'
 set history=500				 " command line history
 set encoding=utf-8 fileencodings=
 set foldmethod=marker
+set cryptmethod=blowfish
 
 " *** Search *** {{{2
 set hlsearch				 " highlight search items
@@ -300,6 +301,7 @@ if has('autocmd')
 	" position when opening a file.
 	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 	autocmd! BufWritePost .vimrc source $MYVIMRC
+	autocmd! BufWritePost .vimrc silent AirlineRefresh
 	if has("win32")
 		autocmd! BufWritePost vimrc source $MYVIMRC
 	endif
