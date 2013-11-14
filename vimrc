@@ -27,6 +27,7 @@ if has('python')
 endif
 
 Bundle 'bling/vim-airline'
+Bundle 'junegunn/vim-emoji'
 
 " nono/vim-handlebars
 " altercation/vim-colors-solarized
@@ -337,6 +338,12 @@ let g:ctrlp_custom_ignore = {
 
 " *** GitGutter *** {{{2
 let g:gitgutter_highlight_lines = 0
+silent! if emoji#available()
+  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+  let g:gitgutter_sign_modified_removed = emoji#for('collision')
+endif
 
 " *** NetRW *** {{{2
 let g:netrw_ftp_cmd="ftp -p"
@@ -393,6 +400,13 @@ function! AppendModelineFileType()
 	let l:modeline = printf(" vim: set filetype=%s : ", &filetype)
 	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
 	call append(line("$"), l:modeline)
+endfunction
+
+" %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
+function! ListEmojis()
+	for e in emoji#list()
+		call append(line('$'), printf('%s (%s)', emoji#for(e), e))
+	endfor
 endfunction
 
 " *** Misc *** {{{1
