@@ -1,5 +1,6 @@
 set nocompatible			 " must be the first line
 
+" *** Bundles *** {{{1
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -14,7 +15,12 @@ Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
-Bundle 'CSApprox'
+if has("mac")
+  set background=dark
+  colorscheme solarized
+else
+  Bundle 'CSApprox'
+else
 Bundle 'ap/vim-css-color'
 Bundle 'kchmck/vim-coffee-script'
 
@@ -23,14 +29,14 @@ Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
 
 if has('python')
-	Bundle 'SirVer/ultisnips'
+  Bundle 'SirVer/ultisnips'
 endif
 
 Bundle 'bling/vim-airline'
 Bundle 'junegunn/vim-emoji'
 
+Bundle 'altercation/vim-colors-solarized'
 " nono/vim-handlebars
-" altercation/vim-colors-solarized
 
 " Python bundles
 " vim-flake8
@@ -56,75 +62,75 @@ set smartindent
 
 " *** Directories *** {{{2
 if has("win32")
-	set nobackup
-	set noswapfile
+  set nobackup
+  set noswapfile
 else
-	set backup
-	set backupdir=$HOME/.temp//  " for backup files
-	set directory=$HOME/.temp//  " for swap files
-	if exists("*mkdir")
-		if !isdirectory($HOME . "/.temp")
-			call mkdir($HOME . "/.temp", "p")
-		endif
-	endif
+  set backup
+  set backupdir=$HOME/.temp//  " for backup files
+  set directory=$HOME/.temp//  " for swap files
+  if exists("*mkdir")
+    if !isdirectory($HOME . "/.temp")
+      call mkdir($HOME . "/.temp", "p")
+    endif
+  endif
 endif
 
 
 " *** UI *** {{{1
 if has('cmdline_info')
-	set ruler				 " always show the cursor position
-	set showcmd				 " display incomplete commands
+  set ruler				" always show the cursor position
+  set showcmd			" display incomplete commands
 endif
 
 if has('statusline')
-	set laststatus=2
-	if has("win32")
-		set statusline=%=%m%l/%L-%p%%
-	else
-		set statusline=\#{buftabs}%=
-		set statusline+=%#warningmsg#
-		set statusline+=%{SyntasticStatuslineFlag()}
-		set statusline+=%*
-		set statusline+=\ %m%3p%%
-		set statusline+=\ %L\ %{fugitive#statusline()}
-		set statusline+=%y\ %{\&ff}\ 
-	endif
+  set laststatus=2
+  if has("win32")
+    set statusline=%=%m%l/%L-%p%%
+  else
+    set statusline=\#{buftabs}%=
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    set statusline+=\ %m%3p%%
+    set statusline+=\ %L\ %{fugitive#statusline()}
+    set statusline+=%y\ %{\&ff}\ 
+  endif
 endif
 
 if has('mouse')
-	set mouse=a				 " set mouse for all modes
+  set mouse=a				 " set mouse for all modes
 endif
 
 if has("gui_running")
-	syntax on
-	set guioptions=gmr
-	if has("win32")
-		set guifont=Monaco:h12:cTURKISH
-		colorscheme molokai
-	else
-		set guifont=Inconsolata\ 10
-		set background=dark
-		colorscheme solarized
-	end
+  syntax on
+  set guioptions=gmr
+  if has("win32")
+    set guifont=Monaco:h12:cTURKISH
+    colorscheme molokai
+  else
+    set guifont=Inconsolata\ 10
+    set background=dark
+    colorscheme solarized
+  end
 else
-	syntax on
-	set t_Co=256
-	let g:solarized_termcolors=256
-	let g:solarized_termtrans=1
-	if has("win32")
-		colorscheme Borland
-	else
-		"set background=light
-		if index(['tokyo','pegasus'], hostname()) >= 0
-			colorscheme Tomorrow-Night-Bright
-		else
-			if has("mac")
-				colorscheme molokai
-			else
-				colorscheme Tomorrow-Night-Eighties
-			endif
-		endif
-	end
+  syntax on
+  set t_Co=256
+  "let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  if has("win32")
+    colorscheme Borland
+  else
+    "set background=light
+    if index(['tokyo','pegasus'], hostname()) >= 0
+      colorscheme Tomorrow-Night-Bright
+    else
+      if has("mac")
+        colorscheme molokai
+      else
+        colorscheme Tomorrow-Night-Eighties
+      endif
+    endif
+  end
 endif
 
 set scrolloff=3
@@ -139,8 +145,8 @@ set listchars+=extends:»
 set listchars+=precedes:«
 
 if has('autocmd')
-	autocmd BufEnter * :setlocal cursorline
-	autocmd BufLeave * :setlocal nocursorline
+  autocmd BufEnter * :setlocal cursorline
+  autocmd BufLeave * :setlocal nocursorline
 endif
 
 " *** Keys *** {{{1
@@ -153,9 +159,6 @@ noremap // :nohlsearch <bar> cclose <cr>
 " echo filename
 nnoremap <silent> <leader>f :echo @%<cr>
 
-" show tab and crlf characters
-nnoremap <silent> <leader>l :set list!<cr>
-
 nnoremap <silent> <leader>me :messages<cr>
 
 " append mode line to end of current file
@@ -164,9 +167,6 @@ nnoremap <silent> <leader>mlf :call AppendModelineFileType()<cr>
 
 " tabs to spaces
 nnoremap <silent> <leader>r :set noet\|retab!<cr>
-
-" toggle syntax highlighting
-nnoremap <silent> <leader>x :call ToggleSyntax()<cr>
 
 " edit .vimrc
 nnoremap <silent> <leader>v :edit $MYVIMRC<cr>
@@ -186,20 +186,19 @@ nnoremap <C-h> :lprev<cr>
 nnoremap <C-l> :lnext<cr>
 
 if has('autocmd')
-	nmap <F8> :set paste<cr>i
-	autocmd InsertLeave * set nopaste
-	inoremap <c-c> <esc>
-	nnoremap <c-c> <nop>
+  nmap <F8> :set paste<cr>i
+  autocmd InsertLeave * set nopaste
+  inoremap <c-c> <esc>
+  nnoremap <c-c> <nop>
 endif
 
 noremap <silent> <F2> :NERDTreeToggle<CR>
-nnoremap <silent> <C-S-n> :NERDTreeToggle<CR>
 if executable("ctags")
-	nmap <silent> <F3> :TagbarToggle<CR>
-	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <bar> TagbarClose <cr>
+  nmap <silent> <F3> :TagbarToggle<CR>
+  nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <bar> TagbarClose <cr>
 else
-	nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
-	nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <cr>
+  nmap <silent> <F3> :echo "CTags yoksa Tagbar da yok !!"<cr>
+  nnoremap <silent> <space> :NERDTreeClose <bar> cclose <bar> lclose <cr>
 endif
 
 noremap <C-J> :bp<CR>
@@ -207,6 +206,7 @@ nnoremap <S-Tab> :bp<CR>
 noremap <C-K> :bn<CR>
 nnoremap <Tab> :bn<CR>
 
+nmap <leader>n :NERDTreeFind<cr>
 " Disable Tab and S-Tab on NERDTree window
 autocmd FileType nerdtree noremap <buffer> <S-Tab> <nop>
 autocmd FileType nerdtree noremap <buffer> <Tab> <nop>
@@ -221,6 +221,21 @@ vmap <C-S-Down> dp`[V`]
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
 
 noremap <silent> <F12> :set number!<CR>
+
+" *** Toggle various UI options *** {{{2
+" toggle airline
+nnoremap <silent> <leader>ta :AirlineToggle<cr>
+" toggle gitgutter
+nnoremap <silent> <leader>tg :GitGutterToggle<cr>
+nnoremap <silent> <leader>tgl :GitGutterLineHighlightsToggle<cr>
+" toggle tab and crlf characters
+nnoremap <silent> <leader>tl :set list!<cr>
+" toggle nerdtree
+nnoremap <silent> <leader>tnt :NERDTreeToggle<cr>
+" toggle line numbers
+nnoremap <silent> <leader>tnu :set invnumber<cr>
+" toggle syntax highlighting
+nnoremap <silent> <leader>ts :call ToggleSyntax()<cr>
 
 " *** Key Fixes *** {{{2
 set backspace=indent,eol,start
@@ -258,7 +273,7 @@ set completeopt=longest,menuone
 set wildmenu
 "set wildmode=list:longest
 if has('unix')
-	set dictionary+=/usr/share/dict/words
+  set dictionary+=/usr/share/dict/words
 endif
 
 " *** Abbreviations *** {{{1
@@ -268,44 +283,44 @@ iab tehn then
 
 " *** Filetype settings *** {{{1
 if has('autocmd')
-	filetype plugin indent on
-	autocmd BufNewFile,BufRead *.txt setlocal filetype=text
-	autocmd FileType text setlocal textwidth=78 complete+=k infercase
-	autocmd FileType html setlocal shiftwidth=4 tabstop=4
-	autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
-	autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
-	autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
-	autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab
-	autocmd FileType javascript setlocal expandtab
-	autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
-	autocmd FileType vim setlocal foldcolumn=2
-	autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
-	autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
-	" autocmd BufWritePost *.coffee silent CoffeeMake!
-	autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
-	autocmd BufNewFile,BufRead *.cap setlocal filetype=ruby
-	autocmd BufNewFile,BufRead *.fab setlocal filetype=python
-	autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
-	autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
-	autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
-	autocmd BufNewFile,BufRead *.twig setlocal filetype=twig
-	autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
-	autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+  filetype plugin indent on
+  autocmd BufNewFile,BufRead *.txt setlocal filetype=text
+  autocmd FileType text setlocal textwidth=78 complete+=k infercase
+  autocmd FileType html setlocal shiftwidth=4 tabstop=4
+  autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+  autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType javascript setlocal expandtab
+  autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType vim setlocal foldcolumn=2
+  autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
+  autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
+  " autocmd BufWritePost *.coffee silent CoffeeMake!
+  autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
+  autocmd BufNewFile,BufRead *.cap setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.fab setlocal filetype=python
+  autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
+  autocmd BufNewFile,BufRead *.asm setlocal filetype=fasm
+  autocmd BufNewFile,BufRead *.nginx setlocal filetype=nginx
+  autocmd BufNewFile,BufRead *.twig setlocal filetype=twig
+  autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
+  autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 
-	autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
+  autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid or when inside an event handler
-	" (happens when dropping a file on gvim).
-	" Also don't do it when the mark is in the first line, that is the default
-	" position when opening a file.
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-	autocmd! BufWritePost .vimrc source $MYVIMRC
-	autocmd! BufWritePost .vimrc silent AirlineRefresh
-	if has("win32")
-		autocmd! BufWritePost vimrc source $MYVIMRC
-	endif
-	" set autoread
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd! BufWritePost .vimrc source $MYVIMRC
+  autocmd! BufWritePost .vimrc silent AirlineRefresh
+  if has("win32")
+    autocmd! BufWritePost vimrc source $MYVIMRC
+  endif
+  " set autoread
 endif
 
 
@@ -369,22 +384,22 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme = "molokai"
+let g:airline_theme = "solarized"
 
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
 command! CD cd %:p:h
 command! LCD lcd %:p:h
 
 function! ToggleSyntax()
-	if exists("g:syntax_on")
-		syntax off
-	else
-		syntax enable
-	endif
+  if exists("g:syntax_on")
+    syntax off
+  else
+    syntax enable
+  endif
 endfunction
 
 " Append modeline after last line in buffer.
@@ -399,27 +414,28 @@ function! AppendModeline()
 endfunction
 
 function! AppendModelineFileType()
-	let l:modeline = printf(" vim: set filetype=%s : ", &filetype)
-	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-	call append(line("$"), l:modeline)
+  let l:modeline = printf(" vim: set filetype=%s : ", &filetype)
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
 endfunction
 
 " %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 function! ListEmojis()
-	for e in emoji#list()
-		call append(line('$'), printf('%s (%s)', emoji#for(e), e))
-	endfor
+  for e in emoji#list()
+    call append(line('$'), printf('%s (%s)', emoji#for(e), e))
+  endfor
 endfunction
 
 " *** Misc *** {{{1
 
 " source machine local configuration if it exists
 if filereadable($HOME . "/.vim/local.vim")
-   source $HOME/.vim/local.vim
+  source $HOME/.vim/local.vim
 endif 
 
 " The following autocommand will cause the quickfix window to open after any grep invocation:
 if has('autocmd')
-	autocmd QuickFixCmdPost *grep* cwindow
+  autocmd QuickFixCmdPost *grep* cwindow
 endif
 
+" vim: set ts=2 sw=2 tw=78 :
