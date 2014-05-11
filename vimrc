@@ -25,7 +25,6 @@ Bundle 'airblade/vim-gitgutter'
 "  Bundle 'CSApprox'
 "endif
 "Bundle 'ap/vim-css-color'
-Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
@@ -308,6 +307,7 @@ if has('autocmd')
   autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
   " autocmd BufWritePost *.coffee silent CoffeeMake!
   autocmd BufNewFile,BufRead SConstruct setlocal filetype=python
+  autocmd BufNewFile,BufRead *.coffee setlocal filetype=coffee
   autocmd BufNewFile,BufRead *.cap setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.fab setlocal filetype=python
   autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
