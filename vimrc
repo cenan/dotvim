@@ -8,8 +8,6 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Tagbar'
 Bundle 'kien/ctrlp.vim'
-
-Bundle 'justinmk/vim-gtfo'
 Bundle 'mhinz/vim-startify'
 
 Bundle 'Syntastic'
@@ -37,9 +35,17 @@ if has('python')
 endif
 
 Bundle 'bling/vim-airline'
-Bundle 'junegunn/vim-emoji'
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin' || os == 'Mac'
+	Bundle 'junegunn/vim-emoji'
+endif
 
 Bundle 'altercation/vim-colors-solarized'
+
+if has('unix')
+	Bundle 'justinmk/vim-gtfo'
+endif
+
 " nono/vim-handlebars
 
 " Python bundles
