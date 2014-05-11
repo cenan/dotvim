@@ -9,27 +9,32 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Tagbar'
 Bundle 'kien/ctrlp.vim'
 
+Bundle 'justinmk/vim-gtfo'
+Bundle 'mhinz/vim-startify'
+
 Bundle 'Syntastic'
 Bundle 'mattn/emmet-vim'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
-if has("mac")
-  set background=dark
-  colorscheme solarized
-else
-  Bundle 'CSApprox'
-else
-Bundle 'ap/vim-css-color'
+"if has("mac")
+"  set background=dark
+"  colorscheme solarized
+"else
+"  Bundle 'CSApprox'
+"endif
+"Bundle 'ap/vim-css-color'
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-rails'
 
 if has('python')
   Bundle 'SirVer/ultisnips'
+  Bundle 'honza/vim-snippets'
 endif
 
 Bundle 'bling/vim-airline'
@@ -93,7 +98,7 @@ if has('statusline')
     set statusline+=%*
     set statusline+=\ %m%3p%%
     set statusline+=\ %L\ %{fugitive#statusline()}
-    set statusline+=%y\ %{\&ff}\ 
+    set statusline+=%y\ %{\&ff}\
   endif
 endif
 
@@ -116,21 +121,21 @@ else
   syntax on
   set t_Co=256
   "let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
+  "let g:solarized_termtrans=1
   if has("win32")
     colorscheme Borland
   else
     "set background=light
-    if index(['tokyo','pegasus'], hostname()) >= 0
-      colorscheme Tomorrow-Night-Bright
-    else
-      if has("mac")
-        colorscheme molokai
-      else
-        colorscheme Tomorrow-Night-Eighties
-      endif
-    endif
-  end
+    "if index(['tokyo','pegasus'], hostname()) >= 0
+    "  colorscheme Tomorrow-Night-Bright
+    "else
+    "  if has("mac")
+    "    colorscheme molokai
+    "  else
+    "    colorscheme Tomorrow-Night-Eighties
+    "  endif
+    "endif
+  endif
 endif
 
 set scrolloff=3
@@ -150,6 +155,7 @@ if has('autocmd')
 endif
 
 " *** Keys *** {{{1
+
 let mapleader = ","
 imap jk <esc>
 
@@ -222,6 +228,9 @@ nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
 
 noremap <silent> <F12> :set number!<CR>
 
+nnoremap <C-S> :w<CR>
+inoremap <C-S> <ESC>:w<CR>a
+
 " *** Toggle various UI options *** {{{2
 " toggle airline
 nnoremap <silent> <leader>ta :AirlineToggle<cr>
@@ -291,8 +300,9 @@ if has('autocmd')
   autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
   autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 expandtab
   autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab
-  autocmd FileType javascript setlocal expandtab
+  autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
   autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType eruby setlocal expandtab shiftwidth=2 softtabstop=2
   autocmd FileType vim setlocal foldcolumn=2
   autocmd BufRead *.py nmap <buffer> <F5> :!python %<CR>
   autocmd BufRead *.c,*.h  nmap <buffer> <F5> :!scons<CR>
@@ -306,6 +316,7 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *.twig setlocal filetype=twig
   autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
   autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+  autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
 
   autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
@@ -327,7 +338,7 @@ endif
 " *** Plug-in related settings *** {{{1
 
 " *** NERDTree *** {{{2
-let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc']
+let NERDTreeIgnore=['\.psd', '__MACOSX', '\.o', '\.pyc', '.DS_Store']
 
 " *** Buftabs *** {{{2
 let g:buftabs_only_basename=1
@@ -350,6 +361,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.pyc$\|\.mp3$\|\.flac$\|\.swp$\|\.o$',
   \ 'link': '',
   \ }
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_regexp = 0
 "let ctrlp_match_window_bottom = 0
 "let ctrlp_match_window_reversed = 0
 
@@ -384,8 +397,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme = "solarized"
+"let g:airline_theme = "solarized"
+let g:airline_theme = "bubblegum"
 
+" *** Startify{{{2
+let g:startify_files_number=8
 " *** Functions *** {{{1
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
@@ -408,7 +424,7 @@ endfunction
 " TODO: check for existing modeline
 function! AppendModeline()
   let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
-		\ &tabstop, &shiftwidth, &textwidth)
+        \ &tabstop, &shiftwidth, &textwidth)
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
@@ -431,7 +447,7 @@ endfunction
 " source machine local configuration if it exists
 if filereadable($HOME . "/.vim/local.vim")
   source $HOME/.vim/local.vim
-endif 
+endif
 
 " The following autocommand will cause the quickfix window to open after any grep invocation:
 if has('autocmd')
