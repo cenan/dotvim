@@ -389,6 +389,10 @@ let g:netrw_localmovecmd = 'move'
 
 " *** Syntastic *** {{{2
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_error_symbol          = '✗✗'
+let g:syntastic_warning_symbol        = '⚠⚠'
+let g:syntastic_style_error_symbol    = '✗'
+let g:syntastic_style_warning_symbol  = '⚠'
 
 " *** TagBar *** {{{2
 let g:tagbar_ctags_bin='/usr/bin/ctags-exuberant'
