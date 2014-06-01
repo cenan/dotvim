@@ -457,6 +457,9 @@ endfunction
 
 " *** Misc *** {{{1
 
+" ctags -R --exclude=.git --exclude=log *
+set tags=./tag,~/projects/rails/tags;
+
 " source machine local configuration if it exists
 if filereadable($HOME . "/.vim/local.vim")
   source $HOME/.vim/local.vim
