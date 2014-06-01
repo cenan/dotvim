@@ -28,6 +28,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails'
+Bundle 'rking/vim-ruby-refactoring'
 
 if has('python')
   Bundle 'SirVer/ultisnips'
@@ -178,7 +179,7 @@ nnoremap <silent> <leader>ml :call AppendModeline()<cr>
 nnoremap <silent> <leader>mlf :call AppendModelineFileType()<cr>
 
 " tabs to spaces
-nnoremap <silent> <leader>r :set noet\|retab!<cr>
+" nnoremap <silent> <leader>r :set noet\|retab!<cr>
 
 " edit .vimrc
 nnoremap <silent> <leader>v :edit $MYVIMRC<cr>
