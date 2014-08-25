@@ -1,57 +1,60 @@
 set nocompatible			 " must be the first line
 
 " *** Bundles *** {{{1
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'Tagbar'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mhinz/vim-startify'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-startify'
 
-Bundle 'Syntastic'
-Bundle 'mattn/emmet-vim'
+Plugin 'Syntastic'
+Plugin 'mattn/emmet-vim'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 "if has("mac")
 "  set background=dark
 "  colorscheme solarized
 "else
-"  Bundle 'CSApprox'
+"  Plugin 'CSApprox'
 "endif
-"Bundle 'ap/vim-css-color'
+"Plugin 'ap/vim-css-color'
 
-Bundle 'plasticboy/vim-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-rails'
-Bundle 'rking/vim-ruby-refactoring'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
+Plugin 'rking/vim-ruby-refactoring'
 
 if has('python')
-  Bundle 'SirVer/ultisnips'
-  Bundle 'honza/vim-snippets'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
 endif
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 let os=substitute(system('uname'), '\n', '', '')
 if os == 'Darwin' || os == 'Mac'
-	Bundle 'junegunn/vim-emoji'
+	Plugin 'junegunn/vim-emoji'
 endif
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'reedes/vim-colors-pencil'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
 
 if has('unix')
-	Bundle 'justinmk/vim-gtfo'
+	Plugin 'justinmk/vim-gtfo'
 endif
 
 " nono/vim-handlebars
 
 " Python bundles
 " vim-flake8
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " *** General Settings *** {{{1
 set history=500				 " command line history
