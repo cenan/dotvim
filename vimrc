@@ -32,6 +32,8 @@ Plugin 'rking/vim-ruby-refactoring'
 
 Plugin 'rust-lang/rust.vim'
 
+Plugin 'vim-scripts/VimClojure'
+
 if has('python')
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
@@ -331,6 +333,8 @@ if has('autocmd')
   autocmd BufNewFile,BufRead */templates/*.html setlocal filetype=django
   autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+	autocmd BufNewFile,BufRead *.clj set filetype=clojure
+	autocmd BufNewFile,BufRead *.cljs set filetype=clojure
 
   autocmd BufNewFile,BufRead *.php setlocal makeprg=php\ % errorformat=%m
 
